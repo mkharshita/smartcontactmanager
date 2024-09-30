@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="~{normal/base::layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Dashboard</title>
+</head>
+<body>
+    <section>
+        <div class="card mr-3 ml-3">
+            <div class="card-body">
+                <div class="container">
+                    <img src="" 
+                        style="height: 200px; width: 200px;"
+                        class="my_profile_picture" 
+                        th:src="@{/img/${contact.image}}" 
+                        alt="profile photo">
+                    <span th:text="${contact.name}"></span>
+                </div>
+            </div>
+        </div>
+        
+        <div>
+            <h1 class="text-center" th:unless="${contact}">You don't have permission to see this information.</h1>
+            <h1 class="text-center" th:if="${contact}">Contact details:</h1>
+            <!-- Add more code here to display the contact information -->
+        </div>
+    </section>
+</body>
+</html>
+
