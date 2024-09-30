@@ -8,10 +8,16 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.smart.smartcontactmanager.entities.Contact;
+import com.smart.smartcontactmanager.entities.User;
+
+import java.util.List;
+
 
 @Repository
 public interface ContactRepository extends JpaRepository<Contact,Integer>{
 
     @Query("from Contact as c where c.user.id =:userId")
     public Page<Contact> findContactByUser(@Param("userId")int userId, Pageable pageable);
+
+    public List<Contact> findByNameContainingAndUser(String name,User user);
 }
